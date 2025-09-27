@@ -1,16 +1,79 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. What is JSX, and why is it used?
 
-Currently, two official plugins are available:
+=JSX stands for JavaScript XML.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+=It lets you write HTML-like code inside JavaScript.
 
-## React Compiler
+=React uses JSX to describe what the UI should look like.
+==Because it makes code easier to read and looks similar to HTML, but with full JavaScript power.
+==Why used?
+Easier to read.
+Looks like HTML but with JavaScript logic.
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+2. What is the difference between State and Props?
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+State:::
+
+=Data that belongs to a component.
+
+=Can be changed/updated inside the component.
+
+-Example: A counter value that increases when you click a button.
+
+Props:::
+
+=Data passed from parent to child components.
+
+=Read-only, cannot be changed by the child.
+
+=Example: Passing a title to a Header component.
+
+## Simple rule:
+
+State = internal, can change.
+
+Props = external, fixed input.
+
+3. What is the useState hook, and how does it work?
+
+==useState is a React hook that lets you add state to functional components.
+
+code:::
+
+const [count, setCount] = useState(0);
+
+
+count → current value
+
+setCount → function to update value
+
+==When you call setCount, React re-renders the component with the new value.
+
+
+4. How can you share state between components in React?
+
+==Lift state up → Put the state in the closest common parent and pass it down as props.
+
+Example:
+
+--Parent holds the state.
+
+--Child A can update it.
+
+--Child B can read/use it.
+
+
+5. How is event handling done in React?
+
+==Events in React are written in camelCase (e.g., onClick, onChange).
+
+=You pass a function as the event handler.
+
+Example:
+
+function App() {
+  const handleClick = () => alert("Button clicked!");
+  return <button onClick={handleClick}>Click Me</button>;
+}
